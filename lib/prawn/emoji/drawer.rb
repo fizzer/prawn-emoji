@@ -63,8 +63,12 @@ module Prawn
         @document.image emoji_image.path, at: at, width: width
       end
 
+      def no_extra(text)
+        text.gsub(/\ufe0f|\u200d/, '')
+      end
+
       def partition_emoji(text)
-        left_text, emoji_unicode, remaining_text = text.partition(@emoji_index.to_regexp)
+        left_text, emoji_unicode, remaining_text = no_extra(text).partition(@emoji_index.to_regexp)
 
         return nil if emoji_unicode.empty?
 
