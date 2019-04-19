@@ -45,7 +45,7 @@ module Prawn
 
               emoji_x, emoji_y = text_options[:at]
               emoji_x += @document.width_of(result_texts.join + left_text, text_options)
-              emoji_y += @document.font_size - 2
+              emoji_y += @document.font_size - 4
 
               draw_emoji_image emoji_image, at: [emoji_x, emoji_y], width: @document.font_size - 2
 
