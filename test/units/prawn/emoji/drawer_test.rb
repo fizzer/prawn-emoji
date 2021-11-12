@@ -64,7 +64,7 @@ class Prawn::Emoji::DrawerTest < Test::Unit::TestCase
 
     test '#draw_emoji returns the character width including the character spacing' do
       sushi_char = Prawn::Emoji::Char.new('🍣', @font_size)
-      assert_equal sushi_char.width + 3, @drawer.send(:draw_emoji, sushi_char, at: [100, 200])
+      assert_equal sushi_char.width + 5, @drawer.send(:draw_emoji, sushi_char, at: [100, 200])
     end
 
     test '#draw_text returns 0 when the text is empty' do

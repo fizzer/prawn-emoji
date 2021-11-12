@@ -24,7 +24,7 @@ module Prawn
         while emoji_text.contains_emoji? do
           if emoji_index.include?(emoji_text.emoji_char.codepoint)
             cursor_x += draw_text(emoji_text.left, at: [cursor_x, cursor_y], text_options: text_options)
-            cursor_x += draw_emoji(emoji_text.emoji_char, at: [cursor_x, cursor_y])
+            cursor_x += draw_emoji(emoji_text.emoji_char, at: [cursor_x, cursor_y - 1])
           else
             cursor_x += draw_text(emoji_text.left_with_emoji, at: [cursor_x, cursor_y], text_options: text_options)
           end
@@ -56,7 +56,7 @@ module Prawn
         emoji_image = Emoji::Image.new(emoji_char)
         emoji_image.render(document, at: at)
 
-        emoji_image.width + document.character_spacing
+        document.font_size + document.character_spacing
       end
     end
   end
