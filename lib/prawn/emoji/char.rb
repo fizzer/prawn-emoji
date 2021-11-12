@@ -3,7 +3,7 @@
 module Prawn
   module Emoji
     class Char
-      VARIATION_SELECTORS = %w(fe0e fe0f).freeze
+      VARIATION_SELECTORS = %w(fe0e fe0f 200d).freeze
 
       class << self
         def format_codepoint(codepoints)
