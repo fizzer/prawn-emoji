@@ -36,9 +36,10 @@ namespace :emoji do
 
     emoji_files = Prawn::Emoji.root.join('emoji', 'images', '*.png')
     emoji_names = Pathname.glob(emoji_files).map { |f| f.basename('.png').to_s }
+    emoji_names = emoji_names.sort_by { |name| -name.length }
 
     index_file  = Prawn::Emoji.root.join('emoji', 'index.yml')
-    index_file.write emoji_names.sort.to_yaml
+    index_file.write emoji_names.to_yaml
 
     puts 'Updated index.yml'
   end
