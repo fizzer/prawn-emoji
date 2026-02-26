@@ -18,6 +18,7 @@ Gem::Specification.new do |spec|
   end
   spec.require_path  = 'lib'
 
+  spec.add_runtime_dependency 'matrix'
   spec.add_runtime_dependency 'prawn', '~> 2.4'
   spec.add_runtime_dependency 'unicode-emoji', '~> 4.2'
 
